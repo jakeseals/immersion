@@ -1,0 +1,52 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  --color-cream: #FFFDD0;
+  --color-burgundy: #800020;
+  --color-oceanic: #0077BE;
+  --color-silver: #C0C0C0;
+}
+
+@layer base {
+  body {
+    @apply bg-cream text-gray-900;
+    font-family: Georgia, Cambria, 'Times New Roman', serif;
+  }
+
+  h1, h2, h3, h4, h5, h6 {
+    @apply font-serif text-burgundy;
+  }
+
+  p {
+    @apply leading-relaxed;
+  }
+}
+
+@layer components {
+  .romantic-gradient {
+    background: linear-gradient(135deg, var(--color-cream) 0%, #FFF8DC 50%, var(--color-cream) 100%);
+  }
+
+  .moody-overlay {
+    position: relative;
+  }
+
+  .moody-overlay::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: linear-gradient(180deg, rgba(128, 0, 32, 0.1) 0%, rgba(0, 119, 190, 0.05) 100%);
+    pointer-events: none;
+  }
+}
+
+@layer utilities {
+  .text-balance {
+    text-wrap: balance;
+  }
+}
