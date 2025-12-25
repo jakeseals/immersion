@@ -15,6 +15,11 @@ export default defineConfig({
 
   basePath: '/studio',
 
+  // Allow access from localhost and all Vercel deployment URLs
+  cors: {
+    allowCredentials: true,
+  },
+
   plugins: [
     structureTool({
       structure: (S) =>
