@@ -3,10 +3,11 @@
 @tailwind utilities;
 
 :root {
-  --color-cream: #FFFDD0;
-  --color-burgundy: #800020;
-  --color-oceanic: #0077BE;
-  --color-silver: #C0C0C0;
+  --color-cream: #F9F5F0;
+  --color-charcoal: #1F2937;
+  --color-slate: #475569;
+  --color-dusty-rose: #9F7B7B;
+  --color-muted-gold: #B89968;
 }
 
 @layer base {
@@ -16,7 +17,7 @@
   }
 
   h1, h2, h3, h4, h5, h6 {
-    @apply font-serif text-burgundy;
+    @apply font-serif text-charcoal;
   }
 
   p {
@@ -40,7 +41,7 @@
     left: 0;
     right: 0;
     bottom: 0;
-    background: linear-gradient(180deg, rgba(128, 0, 32, 0.1) 0%, rgba(0, 119, 190, 0.05) 100%);
+    background: linear-gradient(180deg, rgba(31, 41, 55, 0.08) 0%, rgba(159, 123, 123, 0.05) 100%);
     pointer-events: none;
   }
 }
