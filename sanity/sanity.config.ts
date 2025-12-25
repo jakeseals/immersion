@@ -3,8 +3,15 @@ import { structureTool } from 'sanity/structure'
 import { visionTool } from '@sanity/vision'
 import { schemaTypes } from './schema'
 
-const projectId = process.env.NEXT_PUBLIC_SANITY_PROJECT_ID!
-const dataset = process.env.NEXT_PUBLIC_SANITY_DATASET!
+declare const process: {
+  env: {
+    NEXT_PUBLIC_SANITY_PROJECT_ID?: string
+    NEXT_PUBLIC_SANITY_DATASET?: string
+  }
+}
+
+const projectId = process.env.NEXT_PUBLIC_SANITY_PROJECT_ID || 'j6kvqyn1'
+const dataset = process.env.NEXT_PUBLIC_SANITY_DATASET || 'production'
 
 export default defineConfig({
   name: 'default',
