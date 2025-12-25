@@ -8,6 +8,7 @@ A Next.js website showcasing a summer teaching internship journey across three c
 - **Typography**: Serif fonts for headings (Georgia), sans-serif for body
 - **Aesthetic**: Romantic, moody, elegant with smooth animations
 - **Responsive**: Fully optimized for desktop and mobile
+- **Experience**: Interactive branching navigation through three teaching sessions
 
 ## 🛠 Tech Stack
 
