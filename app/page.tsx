@@ -6,21 +6,18 @@ export default function HomePage() {
     <main className="min-h-screen romantic-gradient">
       {/* Header */}
       <header className="container mx-auto px-4 py-8">
-        <h1 className="text-3xl md:text-4xl font-serif text-burgundy">Immersion</h1>
-        <p className="text-sm text-burgundy/70 mt-1">Teaching Internship Journey</p>
+        <h1 className="text-3xl md:text-4xl font-serif text-burgundy">Immersion Vanderbilt</h1>
+        <p className="text-sm text-burgundy/70 mt-1">Jake Seals</p>
       </header>
 
       {/* Hero Section */}
       <section className="container mx-auto px-4 py-16 md:py-24">
         <div className="max-w-4xl mx-auto text-center">
           <h2 className="text-5xl md:text-7xl font-serif text-burgundy mb-6 animate-fade-in">
-            Three Sessions,
-            <br />
-            One Journey
+            Four Weeks in VSA
           </h2>
           <p className="text-xl md:text-2xl text-burgundy/80 mb-12 leading-relaxed animate-slide-up">
-            Explore the experiences, insights, and reflections from my summer teaching internship
-            across three distinct classroom environments.
+            Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
           </p>
         </div>
       </section>
