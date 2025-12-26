@@ -7,6 +7,9 @@ import { getSessionByNumber, getAllSessions } from '@/lib/sanity.queries'
 import { urlFor } from '@/sanity/lib/image'
 import { HiArrowLeft, HiArrowRight } from 'react-icons/hi2'
 import { Suspense } from 'react'
+import SessionKeyboardNav from '@/components/SessionKeyboardNav'
+import KeyboardShortcutsHelp from '@/components/KeyboardShortcutsHelp'
+import ReadingProgress from '@/components/ReadingProgress'
 
 interface SessionPageProps {
   params: Promise<{
@@ -79,13 +82,47 @@ export default async function SessionPage({ params }: SessionPageProps) {
     const prevSession = currentIndex > 0 ? allSessions[currentIndex - 1] : null
     const nextSession = currentIndex < allSessions.length - 1 ? allSessions[currentIndex + 1] : null
 
+    // JSON-LD structured data for better SEO
+    const jsonLd = {
+      '@context': 'https://schema.org',
+      '@type': 'LearningResource',
+      name: session.title,
+      description: session.description,
+      educationalLevel: 'High School',
+      learningResourceType: 'Teaching Session',
+      about: {
+        '@type': 'Thing',
+        name: 'Immersion Teaching Internship',
+      },
+      teaches: session.learningObjectives || [],
+      position: session.sessionNumber,
+      ...(session.heroImage && {
+        image: urlFor(session.heroImage).width(1200).height(630).url(),
+      }),
+    };
+
     return (
       <main className="min-h-screen romantic-gradient">
+        {/* Reading Progress Bar */}
+        <ReadingProgress />
+        
+        {/* Structured Data */}
+        <script
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
+        />
+        {/* Keyboard Navigation */}
+        <SessionKeyboardNav 
+          currentSession={sessionNumber}
+          prevSession={prevSession?.sessionNumber || null}
+          nextSession={nextSession?.sessionNumber || null}
+        />
+        
         {/* Header */}
         <header className="container mx-auto px-4 py-8">
-          <Link href="/" className="text-burgundy hover:text-burgundy-light transition-colors">
-            <h1 className="text-2xl md:text-3xl font-serif">← Immersion</h1>
-          </Link>
+        <Link href="/" className="text-charcoal hover:text-slate transition-colors">
+          <h1 className="text-xl md:text-2xl font-serif">← Immersion Vanderbilt</h1>
+          <p className="text-sm text-charcoal/70 mt-0.5">Jake Seals</p>
         </header>
 
         {/* Hero Image */}
@@ -94,10 +131,14 @@ export default async function SessionPage({ params }: SessionPageProps) {
             <div className="relative w-full h-[400px] md:h-[500px] rounded-lg overflow-hidden shadow-2xl">
               <Image
                 src={urlFor(session.heroImage).width(1200).height(600).url()}
-                alt={session.heroImage.alt || session.title}
+                alt={session.heroImage.alt || `Hero image for ${session.title}`}
                 fill
                 className="object-cover"
                 priority
+                sizes="(max-width: 768px) 100vw, 1200px"
+                placeholder="blur"
+                blurDataURL={urlFor(session.heroImage).width(20).height(20).blur(10).url()}
+              />
               />
               <div className="absolute inset-0 bg-gradient-to-t from-burgundy/30 to-transparent" />
             </div>
@@ -108,27 +149,27 @@ export default async function SessionPage({ params }: SessionPageProps) {
         <article className="container mx-auto px-4 py-8 max-w-4xl">
           <div className="bg-white/70 backdrop-blur-sm rounded-lg p-8 md:p-12 shadow-xl">
             {/* Session Number Badge */}
-            <div className="inline-block bg-burgundy text-cream px-4 py-2 rounded-full text-sm font-semibold mb-6">
+            <div className="inline-block bg-charcoal text-cream px-4 py-2 rounded-full text-sm font-semibold mb-6">
               Session {session.sessionNumber}
             </div>
 
             {/* Title and Description */}
-            <h2 className="text-4xl md:text-5xl font-serif text-burgundy mb-4">
+            <h2 className="text-4xl md:text-5xl font-serif text-charcoal mb-4">
               {session.title}
             </h2>
-            <p className="text-xl text-burgundy/80 mb-8 leading-relaxed">
+            <p className="text-xl text-charcoal/70 mb-8 leading-relaxed">
               {session.description}
             </p>
 
             {/* Learning Objectives */}
             {session.learningObjectives && session.learningObjectives.length > 0 && (
-              <div className="mb-8 p-6 bg-oceanic/10 rounded-lg border-l-4 border-oceanic">
-                <h3 className="text-xl font-serif text-burgundy mb-3">Learning Objectives</h3>
+              <div className="mb-8 p-6 bg-dusty-rose/10 rounded-lg border-l-4 border-dusty-rose">
+                <h3 className="text-xl font-serif text-charcoal mb-3">Learning Objectives</h3>
                 <ul className="space-y-2">
                   {session.learningObjectives.map((objective, index) => (
                     <li key={index} className="flex items-start">
-                      <span className="text-oceanic mr-2">•</span>
-                      <span className="text-burgundy/80">{objective}</span>
+                      <span className="text-muted-gold mr-2">•</span>
+                      <span className="text-charcoal/80">{objective}</span>
                     </li>
                   ))}
                 </ul>
@@ -151,21 +192,21 @@ export default async function SessionPage({ params }: SessionPageProps) {
                             className="object-cover"
                           />
                           {value.caption && (
-                            <p className="text-center text-sm text-burgundy/60 mt-2">
+                            <p className="text-center text-sm text-charcoal/60 mt-2">
                               {value.caption}
                             </p>
                           )}
                         </div>
                       ),
                       activity: ({ value }) => (
-                        <div className="my-6 p-6 bg-silver/20 rounded-lg border border-silver">
-                          <h4 className="text-lg font-serif text-burgundy mb-2 flex items-center">
+                        <div className="my-6 p-6 bg-slate/10 rounded-lg border border-slate">
+                          <h4 className="text-lg font-serif text-charcoal mb-2 flex items-center">
                             <span className="mr-2">📚</span>
                             {value.title}
                           </h4>
-                          <p className="text-burgundy/80 mb-2">{value.description}</p>
+                          <p className="text-charcoal/80 mb-2">{value.description}</p>
                           {value.duration && (
-                            <p className="text-sm text-burgundy/60">
+                            <p className="text-sm text-charcoal/60">
                               Duration: {value.duration} minutes
                             </p>
                           )}
@@ -174,13 +215,13 @@ export default async function SessionPage({ params }: SessionPageProps) {
                     },
                     block: {
                       h2: ({ children }) => (
-                        <h2 className="text-3xl font-serif text-burgundy mt-8 mb-4">{children}</h2>
+                        <h2 className="text-3xl font-serif text-charcoal mt-8 mb-4">{children}</h2>
                       ),
                       h3: ({ children }) => (
-                        <h3 className="text-2xl font-serif text-burgundy mt-6 mb-3">{children}</h3>
+                        <h3 className="text-2xl font-serif text-charcoal mt-6 mb-3">{children}</h3>
                       ),
                       blockquote: ({ children }) => (
-                        <blockquote className="border-l-4 border-oceanic pl-4 italic text-burgundy/80 my-6">
+                        <blockquote className="border-l-4 border-muted-gold pl-4 italic text-charcoal/80 my-6">
                           {children}
                         </blockquote>
                       ),
@@ -193,7 +234,7 @@ export default async function SessionPage({ params }: SessionPageProps) {
             {/* Gallery */}
             {session.gallery && session.gallery.length > 0 && (
               <div className="mt-12">
-                <h3 className="text-2xl font-serif text-burgundy mb-6">Gallery</h3>
+                <h3 className="text-2xl font-serif text-charcoal mb-6">Gallery</h3>
                 <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
                   {session.gallery.map((image, index) => (
                     <div key={index} className="relative h-64 rounded-lg overflow-hidden shadow-lg">
@@ -215,12 +256,12 @@ export default async function SessionPage({ params }: SessionPageProps) {
             {prevSession ? (
               <Link
                 href={`/sessions/${prevSession.sessionNumber}`}
-                className="group flex items-center gap-2 px-6 py-3 bg-white/70 hover:bg-white transition-all rounded-lg border-2 border-burgundy/20 hover:border-burgundy"
+                className="group flex items-center gap-2 px-6 py-3 bg-white/70 hover:bg-white transition-all rounded-lg border-2 border-charcoal/20 hover:border-charcoal shadow-sm"
               >
-                <HiArrowLeft className="text-oceanic group-hover:-translate-x-1 transition-transform" />
+                <HiArrowLeft className="text-slate group-hover:-translate-x-1 transition-transform" />
                 <div>
-                  <div className="text-xs text-burgundy/60">Previous</div>
-                  <div className="font-serif text-burgundy">Session {prevSession.sessionNumber}</div>
+                  <div className="text-xs text-charcoal/60">Previous (←)</div>
+                  <div className="font-serif text-charcoal">Session {prevSession.sessionNumber}</div>
                 </div>
               </Link>
             ) : (
@@ -230,13 +271,13 @@ export default async function SessionPage({ params }: SessionPageProps) {
             {nextSession ? (
               <Link
                 href={`/sessions/${nextSession.sessionNumber}`}
-                className="group flex items-center gap-2 px-6 py-3 bg-white/70 hover:bg-white transition-all rounded-lg border-2 border-burgundy/20 hover:border-burgundy"
+                className="group flex items-center gap-2 px-6 py-3 bg-white/70 hover:bg-white transition-all rounded-lg border-2 border-charcoal/20 hover:border-charcoal shadow-sm"
               >
                 <div className="text-right">
-                  <div className="text-xs text-burgundy/60">Next</div>
-                  <div className="font-serif text-burgundy">Session {nextSession.sessionNumber}</div>
+                  <div className="text-xs text-charcoal/60">Next (→)</div>
+                  <div className="font-serif text-charcoal">Session {nextSession.sessionNumber}</div>
                 </div>
-                <HiArrowRight className="text-oceanic group-hover:translate-x-1 transition-transform" />
+                <HiArrowRight className="text-slate group-hover:translate-x-1 transition-transform" />
               </Link>
             ) : (
               <div />
@@ -245,17 +286,20 @@ export default async function SessionPage({ params }: SessionPageProps) {
         </article>
 
         {/* Footer */}
-        <footer className="container mx-auto px-4 py-12 mt-12 border-t border-burgundy/20">
+        <footer className="container mx-auto px-4 py-12 mt-12 border-t border-charcoal/20">
           <div className="text-center">
             <Link
               href="/"
-              className="inline-flex items-center gap-2 text-burgundy hover:text-burgundy-light transition-colors"
+              className="inline-flex items-center gap-2 text-charcoal hover:text-slate transition-colors">
             >
               <HiArrowLeft />
               Back to Home
             </Link>
           </div>
         </footer>
+
+        {/* Keyboard Shortcuts Help */}
+        <KeyboardShortcutsHelp />
       </main>
     )
   } catch (error) {

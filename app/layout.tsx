@@ -6,14 +6,28 @@ const inter = Inter({ subsets: ['latin'], variable: '--font-sans' })
 
 export const metadata: Metadata = {
   title: 'Immersion | Teaching Internship Experience',
-  description: 'A journey through three teaching sessions - Vanderbilt Capstone Project',
-  keywords: ['teaching', 'internship', 'education', 'Vanderbilt', 'capstone'],
+  description: 'A journey through three teaching sessions - Vanderbilt Capstone Project by Jake Seals',
+  keywords: ['teaching', 'internship', 'education', 'Vanderbilt', 'capstone', 'VSA'],
   authors: [{ name: 'Jake Seals' }],
+  creator: 'Jake Seals',
+  publisher: 'Jake Seals',
   openGraph: {
     title: 'Immersion | Teaching Internship Experience',
     description: 'A journey through three teaching sessions',
     type: 'website',
+    locale: 'en_US',
+    siteName: 'Immersion Vanderbilt',
   },
+  robots: {
+    index: true,
+    follow: true,
+  },
+  viewport: {
+    width: 'device-width',
+    initialScale: 1,
+    maximumScale: 5,
+  },
+  themeColor: '#1F2937',
 }
 
 export default function RootLayout({

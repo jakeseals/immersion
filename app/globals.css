@@ -10,10 +10,16 @@
   --color-muted-gold: #B89968;
 }
 
+* {
+  scroll-behavior: smooth;
+}
+
 @layer base {
   body {
     @apply bg-cream text-gray-900;
     font-family: Georgia, Cambria, 'Times New Roman', serif;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
   }
 
   h1, h2, h3, h4, h5, h6 {
@@ -22,6 +28,20 @@
 
   p {
     @apply leading-relaxed;
+  }
+
+  /* Focus styles for accessibility */
+  *:focus-visible {
+    @apply outline-2 outline-offset-2 outline-muted-gold;
+  }
+
+  /* Skip to content link */
+  .skip-to-content {
+    @apply absolute left-[-9999px] z-50 px-4 py-2 bg-charcoal text-cream rounded;
+  }
+
+  .skip-to-content:focus {
+    @apply left-4 top-4;
   }
 }
 
@@ -49,5 +69,66 @@
 @layer utilities {
   .text-balance {
     text-wrap: balance;
+  }
+}
+
+/* Print styles */
+@media print {
+  @page {
+    margin: 2cm;
+  }
+
+  body {
+    background: white;
+    color: black;
+  }
+
+  .romantic-gradient {
+    background: white;
+  }
+
+  /* Hide interactive elements */
+  button, .skip-to-content, nav, footer {
+    display: none !important;
+  }
+
+  /* Ensure readability */
+  * {
+    color: black !important;
+    background: white !important;
+  }
+
+  /* Break page at sessions */
+  article {
+    page-break-after: always;
+  }
+
+  h1, h2, h3 {
+    page-break-after: avoid;
+  }
+
+  img {
+    page-break-inside: avoid;
+  }
+}
+
+/* Reduced motion for accessibility */
+@media (prefers-reduced-motion: reduce) {
+  * {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+}
+
+/* High contrast mode support */
+@media (prefers-contrast: high) {
+  * {
+    border-color: currentColor !important;
+  }
+
+  .romantic-gradient {
+    background: white;
   }
 }
