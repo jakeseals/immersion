@@ -120,9 +120,10 @@ export default async function SessionPage({ params }: SessionPageProps) {
         
         {/* Header */}
         <header className="container mx-auto px-4 py-8">
-        <Link href="/" className="text-charcoal hover:text-slate transition-colors">
-          <h1 className="text-xl md:text-2xl font-serif">← Immersion Vanderbilt</h1>
-          <p className="text-sm text-charcoal/70 mt-0.5">Jake Seals</p>
+          <Link href="/" className="text-charcoal hover:text-slate transition-colors">
+            <h1 className="text-xl md:text-2xl font-serif">← Immersion Vanderbilt</h1>
+            <p className="text-sm text-charcoal/70 mt-0.5">Jake Seals</p>
+          </Link>
         </header>
 
         {/* Hero Image */}
@@ -139,8 +140,7 @@ export default async function SessionPage({ params }: SessionPageProps) {
                 placeholder="blur"
                 blurDataURL={urlFor(session.heroImage).width(20).height(20).blur(10).url()}
               />
-              />
-              <div className="absolute inset-0 bg-gradient-to-t from-burgundy/30 to-transparent" />
+              <div className="absolute inset-0 bg-gradient-to-t from-charcoal/30 to-transparent" />
             </div>
           </div>
         )}
@@ -290,7 +290,7 @@ export default async function SessionPage({ params }: SessionPageProps) {
           <div className="text-center">
             <Link
               href="/"
-              className="inline-flex items-center gap-2 text-charcoal hover:text-slate transition-colors">
+              className="inline-flex items-center gap-2 text-charcoal hover:text-slate transition-colors"
             >
               <HiArrowLeft />
               Back to Home
