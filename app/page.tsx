@@ -54,7 +54,7 @@ export default function HomePage() {
             <div className="relative">
               <div className="text-5xl font-serif text-charcoal/30 mb-3" aria-hidden="true">01</div>
               <h3 className="text-xl font-serif text-charcoal mb-2">The Psychology of Emotions</h3>
-              <p className="text-sm text-charcoal/60 mb-4 font-semibold">7th/8th Grade</p>
+              <p className="text-sm text-charcoal/60 mb-4 font-semibold">7th/8th</p>
               <div className="flex items-center text-slate font-semibold text-sm">
                 Explore
                 <HiArrowRight className="ml-2 group-hover:translate-x-2 transition-transform" aria-hidden="true" />
@@ -72,7 +72,7 @@ export default function HomePage() {
             <div className="relative">
               <div className="text-5xl font-serif text-charcoal/30 mb-3" aria-hidden="true">02</div>
               <h3 className="text-xl font-serif text-charcoal mb-2">Audiology: The Journey of Sound</h3>
-              <p className="text-sm text-charcoal/60 mb-4 font-semibold">11th Grade</p>
+              <p className="text-sm text-charcoal/60 mb-4 font-semibold">11th</p>
               <div className="flex items-center text-dusty-rose font-semibold text-sm">
                 Explore
                 <HiArrowRight className="ml-2 group-hover:translate-x-2 transition-transform" aria-hidden="true" />
@@ -90,7 +90,7 @@ export default function HomePage() {
             <div className="relative">
               <div className="text-5xl font-serif text-charcoal/30 mb-3" aria-hidden="true">03</div>
               <h3 className="text-xl font-serif text-charcoal mb-2">Nanoscience and Engineering</h3>
-              <p className="text-sm text-charcoal/60 mb-4 font-semibold">9th/10th Grade</p>
+              <p className="text-sm text-charcoal/60 mb-4 font-semibold">9th/10th</p>
               <div className="flex items-center text-muted-gold font-semibold text-sm">
                 Explore
                 <HiArrowRight className="ml-2 group-hover:translate-x-2 transition-transform" aria-hidden="true" />
@@ -108,7 +108,7 @@ export default function HomePage() {
             <div className="relative">
               <div className="text-5xl font-serif text-charcoal/30 mb-3" aria-hidden="true">04</div>
               <h3 className="text-xl font-serif text-charcoal mb-2">Astrophysics: Exploration of Dark Matter</h3>
-              <p className="text-sm text-charcoal/60 mb-4 font-semibold">11th/12th Grade</p>
+              <p className="text-sm text-charcoal/60 mb-4 font-semibold">11th/12th</p>
               <div className="flex items-center text-slate-dark font-semibold text-sm">
                 Explore
                 <HiArrowRight className="ml-2 group-hover:translate-x-2 transition-transform" aria-hidden="true" />

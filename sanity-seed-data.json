@@ -1,0 +1,70 @@
+[
+  {
+    "_type": "session",
+    "sessionNumber": 1,
+    "title": "The Psychology of Emotions",
+    "slug": {
+      "_type": "slug",
+      "current": "psychology-of-emotions"
+    },
+    "description": "Exploring the intricate world of human emotions and their psychological foundations with 7th and 8th grade students.",
+    "isPublished": true,
+    "learningObjectives": [
+      "Understand the basic neurological basis of emotions",
+      "Identify and differentiate between primary and secondary emotions",
+      "Explore emotional intelligence and its practical applications",
+      "Analyze how emotions influence decision-making and behavior"
+    ]
+  },
+  {
+    "_type": "session",
+    "sessionNumber": 2,
+    "title": "Audiology: The Journey of Sound",
+    "slug": {
+      "_type": "slug",
+      "current": "audiology-journey-of-sound"
+    },
+    "description": "An immersive exploration of sound, hearing, and the fascinating field of audiology with 11th grade students.",
+    "isPublished": true,
+    "learningObjectives": [
+      "Understand the anatomy and physiology of the human ear",
+      "Explore how sound waves are processed and interpreted by the brain",
+      "Learn about hearing loss prevention and audiological interventions",
+      "Investigate careers in audiology and related healthcare fields"
+    ]
+  },
+  {
+    "_type": "session",
+    "sessionNumber": 3,
+    "title": "Nanoscience and Engineering",
+    "slug": {
+      "_type": "slug",
+      "current": "nanoscience-engineering"
+    },
+    "description": "Diving into the microscopic world of nanoscience and its revolutionary engineering applications with 9th and 10th grade students.",
+    "isPublished": true,
+    "learningObjectives": [
+      "Grasp the scale and significance of nanotechnology",
+      "Explore current applications in medicine, electronics, and materials science",
+      "Understand the ethical considerations of nanoscale engineering",
+      "Engage with hands-on demonstrations of nanoscale phenomena"
+    ]
+  },
+  {
+    "_type": "session",
+    "sessionNumber": 4,
+    "title": "Astrophysics: Exploration of Dark Matter",
+    "slug": {
+      "_type": "slug",
+      "current": "astrophysics-dark-matter"
+    },
+    "description": "Venturing into the cosmic unknown to understand one of the universe's greatest mysteries with 11th and 12th grade students.",
+    "isPublished": true,
+    "learningObjectives": [
+      "Understand the evidence for dark matter's existence",
+      "Explore current theories and detection methods",
+      "Analyze the role of dark matter in galactic formation and evolution",
+      "Discuss the implications for our understanding of the universe"
+    ]
+  }
+]
