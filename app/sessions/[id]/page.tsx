@@ -25,7 +25,7 @@ export async function generateStaticParams() {
     }))
   } catch (error) {
     console.error('Error generating static params:', error)
-    return [{ id: '1' }, { id: '2' }, { id: '3' }]
+    return [{ id: '1' }, { id: '2' }, { id: '3' }, { id: '4' }]
   }
 }
 
@@ -67,7 +67,7 @@ export default async function SessionPage({ params }: SessionPageProps) {
     const { id } = await params
     const sessionNumber = parseInt(id)
     
-    if (isNaN(sessionNumber) || sessionNumber < 1 || sessionNumber > 3) {
+    if (isNaN(sessionNumber) || sessionNumber < 1 || sessionNumber > 4) {
       notFound()
     }
 

@@ -9,8 +9,8 @@ export default defineType({
       name: 'sessionNumber',
       title: 'Session Number',
       type: 'number',
-      validation: (Rule) => Rule.required().min(1).max(3),
-      description: 'Session number (1, 2, or 3)',
+      validation: (Rule) => Rule.required().min(1).max(4),
+      description: 'Session number (1, 2, 3, or 4)',
     }),
     defineField({
       name: 'title',

@@ -13,7 +13,7 @@ export const viewport: Viewport = {
 
 export const metadata: Metadata = {
   title: 'Immersion | Teaching Internship Experience',
-  description: 'A journey through three teaching sessions - Vanderbilt Capstone Project by Jake Seals',
+  description: 'A journey through four teaching sessions - Vanderbilt Capstone Project by Jake Seals',
   keywords: ['teaching', 'internship', 'education', 'Vanderbilt', 'capstone', 'VSA'],
   authors: [{ name: 'Jake Seals' }],
   creator: 'Jake Seals',
